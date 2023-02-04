@@ -1,0 +1,26 @@
+{
+    "sourceFile": "build.sbt",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1675519774136,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1675519829630,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,9 @@\n import Dependencies._\n \n-ThisBuild / scalaVersion     := \"3.2.2\"\n+val scala3Version = \"3.2.2\"\n+\n+ThisBuild / scalaVersion     := scala3Version\n ThisBuild / version          := \"0.1.0-SNAPSHOT\"\n ThisBuild / organization     := \"wjss\"\n ThisBuild / organizationName := \"WJ Software Solutions\"\n \n"
+                },
+                {
+                    "date": 1675519955066,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n \n lazy val root = (project in file(\".\"))\n   .settings(\n     name := \"scala3\",\n-    libraryDependencies += scalaTest % Test\n+    libraryDependencies += \"org.scalameta\" %% \"munit\" % \"0.7.29\"% Test\n   )\n \n // Uncomment the following for publishing to Sonatype.\n // See https://www.scala-sbt.org/1.x/docs/Using-Sonatype.html for more detail.\n"
+                }
+            ],
+            "date": 1675519774136,
+            "name": "Commit-0",
+            "content": "import Dependencies._\n\nThisBuild / scalaVersion     := \"3.2.2\"\nThisBuild / version          := \"0.1.0-SNAPSHOT\"\nThisBuild / organization     := \"wjss\"\nThisBuild / organizationName := \"WJ Software Solutions\"\n\nlazy val root = (project in file(\".\"))\n  .settings(\n    name := \"scala3\",\n    libraryDependencies += scalaTest % Test\n  )\n\n// Uncomment the following for publishing to Sonatype.\n// See https://www.scala-sbt.org/1.x/docs/Using-Sonatype.html for more detail.\n\n// ThisBuild / description := \"Some descripiton about your project.\"\n// ThisBuild / licenses    := List(\"Apache 2\" -> new URL(\"http://www.apache.org/licenses/LICENSE-2.0.txt\"))\n// ThisBuild / homepage    := Some(url(\"https://github.com/example/project\"))\n// ThisBuild / scmInfo := Some(\n//   ScmInfo(\n//     url(\"https://github.com/your-account/your-project\"),\n//     \"scm:git@github.com:your-account/your-project.git\"\n//   )\n// )\n// ThisBuild / developers := List(\n//   Developer(\n//     id    = \"Your identifier\",\n//     name  = \"Your Name\",\n//     email = \"your@email\",\n//     url   = url(\"http://your.url\")\n//   )\n// )\n// ThisBuild / pomIncludeRepository := { _ => false }\n// ThisBuild / publishTo := {\n//   val nexus = \"https://oss.sonatype.org/\"\n//   if (isSnapshot.value) Some(\"snapshots\" at nexus + \"content/repositories/snapshots\")\n//   else Some(\"releases\" at nexus + \"service/local/staging/deploy/maven2\")\n// }\n// ThisBuild / publishMavenStyle := true\n"
+        }
+    ]
+}

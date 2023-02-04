@@ -1,0 +1,26 @@
+{
+    "sourceFile": ".gitignore",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1675520075535,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1675520082495,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n project/metals.sbt\n .metals/\n \n # vs code\n-.vscode\n+.vscode/\n \n # scala 3\n .tasty\n \n"
+                },
+                {
+                    "date": 1675520104965,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n # bloop and metals\n-.bloop\n-.bsp\n+.bloop/\n+.bsp/\n \n # metals\n project/metals.sbt\n .metals/\n"
+                }
+            ],
+            "date": 1675520075535,
+            "name": "Commit-0",
+            "content": "# bloop and metals\n.bloop\n.bsp\n\n# metals\nproject/metals.sbt\n.metals/\n\n# vs code\n.vscode\n\n# scala 3\n.tasty\n\n# sbt\nproject/project/\nproject/target/\ntarget/\n\n# eclipse\nbuild/\n.classpath\n.project\n.settings\n.worksheet\nbin/\n.cache\n\n# intellij idea\n*.log\n*.iml\n*.ipr\n*.iws\n.idea\n\n# mac\n.DS_Store\n\n# other?\n.history\n.scala_dependencies\n.cache-main\n\n#general\n*.class"
+        }
+    ]
+}

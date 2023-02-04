@@ -1,0 +1,22 @@
+{
+    "sourceFile": "src/test/scala/example/HelloSpec.scala",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1675519955015,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1675520041146,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,5 @@\n package example\n-\n-import org.scalatest._\n-\n class HelloSpec extends munit.FunSuite {\n   test(\"example test that succeeds\") {\n     val obtained = 42\n     val expected = 42\n"
+                }
+            ],
+            "date": 1675519955015,
+            "name": "Commit-0",
+            "content": "package example\n\nimport org.scalatest._\n\nclass HelloSpec extends munit.FunSuite {\n  test(\"example test that succeeds\") {\n    val obtained = 42\n    val expected = 42\n    assertEquals(obtained, expected)\n  }\n}\n"
+        }
+    ]
+}

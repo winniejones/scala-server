@@ -1,13 +1,13 @@
 # bloop and metals
-.bloop
-.bsp
+.bloop/
+.bsp/
 
 # metals
 project/metals.sbt
-.metals
+.metals/
 
 # vs code
-.vscode
+.vscode/
 
 # scala 3
 .tasty

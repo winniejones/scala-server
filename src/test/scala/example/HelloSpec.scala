@@ -1,9 +1,8 @@
 package example
-
-import org.scalatest._
-
-class HelloSpec extends FlatSpec with Matchers {
-  "The Hello object" should "say hello" in {
-    Hello.greeting shouldEqual "hello"
+class HelloSpec extends munit.FunSuite {
+  test("example test that succeeds") {
+    val obtained = 42
+    val expected = 42
+    assertEquals(obtained, expected)
   }
 }

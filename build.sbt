@@ -1,14 +1,16 @@
 import Dependencies._
 
-ThisBuild / scalaVersion     := "2.12.8"
+val scala3Version = "3.2.2"
+
+ThisBuild / scalaVersion     := scala3Version
 ThisBuild / version          := "0.1.0-SNAPSHOT"
-ThisBuild / organization     := "com.example"
-ThisBuild / organizationName := "example"
+ThisBuild / organization     := "wjss"
+ThisBuild / organizationName := "WJ Software Solutions"
 
 lazy val root = (project in file("."))
   .settings(
-    name := "HelloGitpod",
-    libraryDependencies += scalaTest % Test
+    name := "scala3",
+    libraryDependencies += "org.scalameta" %% "munit" % "0.7.29"% Test
   )
 
 // Uncomment the following for publishing to Sonatype.
