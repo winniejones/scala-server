@@ -10,7 +10,11 @@ ThisBuild / organizationName := "WJ Software Solutions"
 lazy val root = (project in file("."))
   .settings(
     name := "scala3",
-    libraryDependencies += "org.scalameta" %% "munit" % "0.7.29"% Test
+    libraryDependencies ++= Seq(
+      "dev.zio" %% "zio" % "2.0.6",
+      "dev.zio" %% "zio-streams" % "2.0.6",
+      "org.scalameta" %% "munit" % "0.7.29"% Test
+    )
   )
 
 // Uncomment the following for publishing to Sonatype.
