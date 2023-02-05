@@ -5,9 +5,12 @@
 # metals
 project/metals.sbt
 .metals/
+.ammonite/
+metals.sbt
 
 # vs code
 .vscode/
+.lh/
 
 # scala 3
 .tasty

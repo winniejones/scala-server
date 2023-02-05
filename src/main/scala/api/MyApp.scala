@@ -1,13 +1,25 @@
-import zio._
-import zio.Console._
+package api
 
-object MyApp extends ZIOAppDefault {
-  def run = myAppLogic
+import api.greet.GreetingApi
+import api.counter.CounterApi
+import api.download.DownloadApi
+import api.users.{InmemoryUserRepo, UserApi, PersistentUserRepo}
+import zio.Ref
+import zio.Scope
+import zio.ZIO
+import zio.ZIOAppArgs
+import zio.ZIOAppDefault
+import zio.ZLayer
+import zhttp.service.Server
 
-  val myAppLogic = 
-    for {
-      _ <- printLine("Hello! What's your name?") 
-      name <- readLine 
-      _ <- printLine(s"Hello,{name}, welcome to ZIO!") 
-    } yield ()
-}
+object MyApp extends ZIOAppDefault:
+  def run: ZIO[Environment with ZIOAppArgs with Scope, Any, Any] =
+    Server
+      .start(
+        port = 8080,
+        http = GreetingApi() ++ CounterApi() ++ UserApi() ++ DownloadApi()
+      )
+      .provide(
+        ZLayer.fromZIO(Ref.make(0)),
+        InmemoryUserRepo.layer
+      )
