@@ -3,23 +3,30 @@ package api
 import api.greet.GreetingApi
 import api.counter.CounterApi
 import api.download.DownloadApi
+import api.config.*
 import api.users.{InmemoryUserRepo, UserApi, PersistentUserRepo}
-import zio.Ref
-import zio.Scope
-import zio.ZIO
-import zio.ZIOAppArgs
-import zio.ZIOAppDefault
-import zio.ZLayer
+import zio._
 import zhttp.service.Server
 
-object MyApp extends ZIOAppDefault:
-  def run: ZIO[Environment with ZIOAppArgs with Scope, Any, Any] =
-    Server
-      .start(
-        port = 8080,
-        http = GreetingApi() ++ CounterApi() ++ UserApi() ++ DownloadApi()
+import java.io.IOException
+import sttp.model.Uri
+
+object MyApp extends ZIOAppDefault {
+
+  def run = ZIO
+    .service[ServerConfig]
+    .flatMap { config =>
+      Server.start(
+        port = config.port,
+        http = GreetingApi() ++ DownloadApi() ++ CounterApi() ++ UserApi()
       )
-      .provide(
-        ZLayer.fromZIO(Ref.make(0)),
-        InmemoryUserRepo.layer
-      )
+    }
+    .provide(
+      // A layer responsible for storing the state of the `counterApp`
+      ZLayer.fromZIO(Ref.make(0)),
+
+      // To use the persistence layer, provide the `PersistentUserRepo.layer` layer instead
+      InmemoryUserRepo.layer,
+      ZLayer.succeed(ServerConfig("localhost", 8080))
+    )
+}

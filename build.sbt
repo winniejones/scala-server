@@ -12,13 +12,20 @@ lazy val root =
     .settings(
       name := "wjss-scala-server",
       libraryDependencies ++= Seq(
-        "dev.zio"       %% "zio"            % "2.0.6",
-        "dev.zio"       %% "zio-json"       % "0.4.0",
-        "io.d11"        %% "zhttp"          % "2.0.0-RC11",
-        "io.getquill"   %% "quill-zio"      % "4.6.0",
-        "io.getquill"   %% "quill-jdbc-zio" % "4.6.0",
-        "com.h2database" % "h2"             % "2.1.214",
-        "org.scalameta" %% "munit"          % "0.7.29" % Test
+        "dev.zio"                     %% "zio"                 % "2.0.6",
+        "dev.zio"                     %% "zio-config"          % "3.0.1",
+        "dev.zio"                     %% "zio-config-typesafe" % "3.0.1",
+        "dev.zio"                     %% "zio-config-magnolia" % "3.0.1",
+        "dev.zio"                     %% "zio-json"            % "0.4.0",
+        "io.d11"                      %% "zhttp"               % "2.0.0-RC11",
+        "io.getquill"                 %% "quill-zio"           % "4.6.0",
+        "io.getquill"                 %% "quill-jdbc-zio"      % "4.6.0",
+        "com.h2database"               % "h2"                  % "2.1.214",
+        "com.softwaremill.sttp.model" %% "core"                % "1.4.7",
+        "com.github.pureconfig"       %% "pureconfig-core"     % "0.17.2",
+        "org.http4s"                  %% "http4s-core"         % "1.0.0-M38",
+        "org.http4s"                  %% "http4s-blaze-server" % "1.0.0-M38",
+        "org.scalameta"               %% "munit"               % "0.7.29" % Test
       )
     )
 
