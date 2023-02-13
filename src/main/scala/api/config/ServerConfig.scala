@@ -1,21 +1,23 @@
 package api.config
 
 import sttp.model.Uri
-import pureconfig._
-import pureconfig.generic.derivation.default._
+import zio._
+import zio.config._, ConfigDescriptor._
+import zio.config.magnolia.descriptor
+import zio.config.typesafe.TypesafeConfigSource
+import zio.config.magnolia.Descriptor
 
-sealed trait AppConfig derives ConfigReader
+case class ServerConfig(host: String, port: Int, allowedOrigins: List[String])
 
-final case class ServerConfig (host: String, port: Int)
-
-final case class Server (
-    host: String,
-    port: Int,
-    allowedOrigins: List[Int]
-) extends AppConfig
-final case class Database (
-    className: String,
-    url: String,
-    user: String,
-    pass: String
-) extends AppConfig
+object ServerConfig {
+  val layer: ZLayer[Any, ReadError[String], ServerConfig] =
+    ZLayer {
+      read {
+        descriptor[ServerConfig].from(
+          TypesafeConfigSource.fromResourcePath.at(
+            PropertyTreePath.$("ServerConfig")
+          )
+        )
+      }
+    }
+}

@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 2,
+            "activePatchIndex": 3,
             "patches": [
                 {
                     "date": 1675519774136,
@@ -16,6 +16,10 @@
                 {
                     "date": 1675519955066,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n \n lazy val root = (project in file(\".\"))\n   .settings(\n     name := \"scala3\",\n-    libraryDependencies += scalaTest % Test\n+    libraryDependencies += \"org.scalameta\" %% \"munit\" % \"0.7.29\"% Test\n   )\n \n // Uncomment the following for publishing to Sonatype.\n // See https://www.scala-sbt.org/1.x/docs/Using-Sonatype.html for more detail.\n"
+                },
+                {
+                    "date": 1676216377774,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,18 +1,33 @@\n-import Dependencies._\n+import Dependencies.*\n \n val scala3Version = \"3.2.2\"\n \n ThisBuild / scalaVersion     := scala3Version\n ThisBuild / version          := \"0.1.0-SNAPSHOT\"\n ThisBuild / organization     := \"wjss\"\n ThisBuild / organizationName := \"WJ Software Solutions\"\n \n-lazy val root = (project in file(\".\"))\n-  .settings(\n-    name := \"scala3\",\n-    libraryDependencies += \"org.scalameta\" %% \"munit\" % \"0.7.29\"% Test\n-  )\n+lazy val root =\n+  (project in file(\".\"))\n+    .settings(\n+      name := \"wjss-scala-server\",\n+      libraryDependencies ++= Seq(\n+        \"dev.zio\"                     %% \"zio\"                 % \"2.0.6\",\n+        \"dev.zio\"                     %% \"zio-config\"          % \"3.0.1\",\n+        \"dev.zio\"                     %% \"zio-config-typesafe\" % \"3.0.1\",\n+        \"dev.zio\"                     %% \"zio-config-magnolia\" % \"3.0.1\",\n+        \"dev.zio\"                     %% \"zio-json\"            % \"0.4.0\",\n+        \"io.d11\"                      %% \"zhttp\"               % \"2.0.0-RC11\",\n+        \"io.getquill\"                 %% \"quill-zio\"           % \"4.6.0\",\n+        \"io.getquill\"                 %% \"quill-jdbc-zio\"      % \"4.6.0\",\n+        \"com.h2database\"               % \"h2\"                  % \"2.1.214\",\n+        \"com.softwaremill.sttp.model\" %% \"core\"                % \"1.4.7\",\n+        \"org.http4s\"                  %% \"http4s-core\"         % \"1.0.0-M38\",\n+        \"org.http4s\"                  %% \"http4s-blaze-server\" % \"1.0.0-M38\",\n+        \"org.scalameta\"               %% \"munit\"               % \"0.7.29\" % Test\n+      )\n+    )\n \n // Uncomment the following for publishing to Sonatype.\n // See https://www.scala-sbt.org/1.x/docs/Using-Sonatype.html for more detail.\n \n"
                 }
             ],
             "date": 1675519774136,

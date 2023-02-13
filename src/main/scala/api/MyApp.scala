@@ -27,6 +27,6 @@ object MyApp extends ZIOAppDefault {
 
       // To use the persistence layer, provide the `PersistentUserRepo.layer` layer instead
       InmemoryUserRepo.layer,
-      ZLayer.succeed(ServerConfig("localhost", 8080))
+      ServerConfig.layer
     )
 }
