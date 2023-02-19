@@ -1,4 +1,5 @@
-package api
+
+import server.config.ServerConfig
 
 import api.greet.GreetingApi
 import api.counter.CounterApi

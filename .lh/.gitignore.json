@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 2,
+            "activePatchIndex": 3,
             "patches": [
                 {
                     "date": 1675520075535,
@@ -16,6 +16,10 @@
                 {
                     "date": 1675520104965,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n # bloop and metals\n-.bloop\n-.bsp\n+.bloop/\n+.bsp/\n \n # metals\n project/metals.sbt\n .metals/\n"
+                },
+                {
+                    "date": 1676718506662,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,11 +4,14 @@\n \n # metals\n project/metals.sbt\n .metals/\n+.ammonite/\n+metals.sbt\n \n # vs code\n .vscode/\n+.lh/\n \n # scala 3\n .tasty\n \n@@ -41,5 +44,10 @@\n .scala_dependencies\n .cache-main\n \n #general\n-*.class\n\\ No newline at end of file\n+*.class\n+\n+# Configuration\n+env_local\n+credentials.properties\n+env.sc\n\\ No newline at end of file\n"
                 }
             ],
             "date": 1675520075535,

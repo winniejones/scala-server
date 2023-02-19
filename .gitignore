@@ -46,3 +46,8 @@ bin/
 
 #general
 *.class
+
+# Configuration
+env_local
+credentials.properties
+env.sc

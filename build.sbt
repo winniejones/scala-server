@@ -22,9 +22,16 @@ lazy val root =
         "io.getquill"                 %% "quill-jdbc-zio"      % "4.6.0",
         "com.h2database"               % "h2"                  % "2.1.214",
         "com.softwaremill.sttp.model" %% "core"                % "1.4.7",
-        "org.http4s"                  %% "http4s-core"         % "1.0.0-M38",
-        "org.http4s"                  %% "http4s-blaze-server" % "1.0.0-M38",
-        "org.scalameta"               %% "munit"               % "0.7.29" % Test
+        "com.softwaremill.sttp.tapir" %% "tapir-cats"          % "1.2.8",
+        "com.softwaremill.sttp.tapir" %% "tapir-core"          % "1.2.8",
+        "com.softwaremill.sttp.tapir" %% "tapir-json-circe"    % "1.2.8",
+        "com.softwaremill.sttp.tapir" %% "tapir-enumeratum"    % "1.2.8",
+        "com.softwaremill.sttp.tapir" %% "tapir-openapi-docs"  % "1.2.8",
+        "com.softwaremill.sttp.tapir" %% "tapir-openapi-circe-yaml" % "1.2.8",
+        "com.softwaremill.sttp.tapir" %% "tapir-zio"                % "1.2.8",
+        "org.http4s"    %% "http4s-core"         % "1.0.0-M38",
+        "org.http4s"    %% "http4s-blaze-server" % "1.0.0-M38",
+        "org.scalameta" %% "munit"               % "0.7.29" % Test
       )
     )
 

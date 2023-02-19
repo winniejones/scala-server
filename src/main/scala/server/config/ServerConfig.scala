@@ -1,4 +1,4 @@
-package api.config
+package server.config
 
 import sttp.model.Uri
 import zio._
@@ -15,7 +15,7 @@ object ServerConfig {
       read {
         descriptor[ServerConfig].from(
           TypesafeConfigSource.fromResourcePath.at(
-            PropertyTreePath.$("ServerConfig")
+            PropertyTreePath.$("server")
           )
         )
       }
