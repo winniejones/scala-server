@@ -1,8 +1,11 @@
-package api.greet
+package com
+package wjss
+package iamauthorization
+package api.routes
 
 import zhttp.http.*
 
-object GreetingApi:
+object GreetingRoutes:
   def apply(): Http[Any, Nothing, Request, Response] =
     Http.collect[Request] {
       // GET /greet?name=:name

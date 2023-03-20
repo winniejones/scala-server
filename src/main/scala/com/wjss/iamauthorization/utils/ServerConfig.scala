@@ -1,4 +1,7 @@
-package api.config
+package com
+package wjss
+package iamauthorization
+package utils
 
 import sttp.model.Uri
 import zio._

@@ -1,4 +1,7 @@
-package api.download
+package com
+package wjss
+package iamauthorization
+package api.routes
 
 import zhttp.http.*
 import zio.*
@@ -9,7 +12,7 @@ import zio.stream.ZStream
   *   - May fail with type of `Throwable`
   *   - Does not require any environment
   */
-object DownloadApi:
+object DownloadRoutes:
   def apply(): Http[Any, Throwable, Request, Response] =
     Http.collectHttp[Request] {
       // GET /download

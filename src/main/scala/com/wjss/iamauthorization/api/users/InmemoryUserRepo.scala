@@ -1,4 +1,4 @@
-package api.users
+package com.wjss.iamauthorization.api.users
 
 import zio.Ref
 
@@ -7,18 +7,21 @@ import zio.Random
 import zio.ZLayer
 import zio.UIO
 
+import com.wjss.iamauthorization.domain.models.User
+import com.wjss.iamauthorization.domain.services.UserService
+
 case class InmemoryUserRepo(map: Ref[mutable.Map[String, User]])
-    extends UserRepo:
-  def register(user: User): UIO[String] =
+    extends UserService:
+  def create(user: User): UIO[String] =
     for
       id <- Random.nextUUID.map(_.toString)
       _  <- map.updateAndGet(_ addOne (id, user))
     yield id
 
-  def lookup(id: String): UIO[Option[User]] =
+  def get(id: String): UIO[Option[User]] =
     map.get.map(_.get(id))
 
-  def users: UIO[List[User]] =
+  def getAll: UIO[List[User]] =
     map.get.map(_.values.toList)
 
 object InmemoryUserRepo {

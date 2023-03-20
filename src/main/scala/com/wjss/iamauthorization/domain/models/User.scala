@@ -1,11 +1,14 @@
-package api.users
+package com
+package wjss
+package iamauthorization
+package domain.models
 
 import zio.json.JsonEncoder
 import zio.json.DeriveJsonDecoder
 import zio.json.JsonDecoder
 import zio.json.DeriveJsonEncoder
 
-case class User(name: String, age: Int)
+case class User(name: String, email: String)
 
 object User:
   given JsonEncoder[User] =

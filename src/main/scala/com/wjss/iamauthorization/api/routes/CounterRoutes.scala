@@ -1,4 +1,7 @@
-package api.counter
+package com
+package wjss
+package iamauthorization
+package api.routes
 
 import zhttp.http.*
 import zio.{Ref, ZIO}
@@ -8,7 +11,7 @@ import zio.{Ref, ZIO}
   *   - Does not fail
   *   - Requires the `Ref[Int]` as the environment
   */
-object CounterApi:
+object CounterRoutes:
   def apply(): Http[Ref[Int], Nothing, Request, Response] =
     Http.fromZIO(ZIO.service[Ref[Int]]).flatMap { ref =>
       Http.collectZIO[Request] {
